@@ -12,6 +12,8 @@ import csrf from 'csurf'; // Import the csurf middleware
 import cookieParser from 'cookie-parser';
 // import routers
 import test from './routes/test.js';
+// validation api key
+import { validateApiKey } from './middleware/apiKey.js';
 
 // Load the env variables
 dotenv.config();
@@ -75,7 +77,7 @@ app.use(cookieParser());
 // CSRF protection
 app.use(csrf({ cookie: true }));
 
-app.use('/api', test);
+app.use('/api', validateApiKey, test);
 
 // handle server startup errors
 server.on('error', (error) => {
