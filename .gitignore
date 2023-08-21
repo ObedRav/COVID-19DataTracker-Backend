@@ -51,4 +51,5 @@ Thumbs.db
 process.env
 SSL_Certificates
 env_variables.txt
+*.env
 
