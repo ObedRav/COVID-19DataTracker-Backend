@@ -1,0 +1,30 @@
+{
+  "name": "covid-19datatracker-backend",
+  "version": "1.0.0",
+  "description": "This repository contains the backend code for the COVID-19 Data Tracker application. It's built using Express.js and MongoDB to extract, store, and serve COVID-19 data from reliable sources. The backend implements robust data extraction endpoints, data storage in a MongoDB database, and advanced filtering options for enhanced data analysis.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "lint": "eslint src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "csurf": "1.11.0",
+    "dotenv": "16.3.1",
+    "express": "4.18.2",
+    "helmet": "7.0.0",
+    "helmet-csp": "3.4.0",
+    "mongoose": "7.4.3",
+    "path": "0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "8.47.0",
+    "nodemon": "3.0.1"
+  }
+}
