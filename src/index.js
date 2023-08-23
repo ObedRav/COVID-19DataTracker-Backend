@@ -11,9 +11,13 @@ import dotenv from 'dotenv';
 import csrf from 'csurf'; // Import the csurf middleware
 import cookieParser from 'cookie-parser';
 // import routers
-import test from './routes/test.js';
+import stateDailyDataRoutes from './routes/stateDailyDataRoutes.js';
+import usDailyDataRoutes from './routes/usDailyDataRoutes.js';
 // validation api key
 import { validateApiKey } from './middleware/apiKey.js';
+// databaseConnection
+import { connectDatabase } from './Database/Database.js';
+import errorHandler from './utils/errorHandler.js';
 
 // Load the env variables
 dotenv.config();
@@ -77,7 +81,14 @@ app.use(cookieParser());
 // CSRF protection
 app.use(csrf({ cookie: true }));
 
-app.use('/api', validateApiKey, test);
+connectDatabase()
+  .then(() => console.log('Database connected from Index'))
+  .catch((err) => console.error(`There was an error calling the function to connect to the database: ${err.message}`));
+
+app.use('/api', validateApiKey, [stateDailyDataRoutes, usDailyDataRoutes]);
+
+// implementing the errors
+app.use(errorHandler);
 
 // handle server startup errors
 server.on('error', (error) => {
