@@ -9,7 +9,7 @@ const router = express.Router();
  * Middleware: validateStateCode
  * Controller: getAllStateDailyData
  *
- * This route retrieves all daily data for a specific state from the database and sends it as a JSON response.
+ * This route retrieves all data for a specific state from the database and sends it as a JSON response.
  */
 router.get('/states/:stateCode/daily', validateStateCode, getAllStateDailyData);
 
