@@ -1,4 +1,8 @@
-export default {
+/**
+ * The `statesData` object contains a mapping of state codes to their corresponding full names.
+ * It is used to provide human-readable names for state codes in the application.
+ */
+const statesData = {
   al: 'Alabama',
   ak: 'Alaska',
   az: 'Arizona',
@@ -50,3 +54,5 @@ export default {
   wi: 'Wisconsin',
   wy: 'Wyoming'
 };
+
+export default statesData;

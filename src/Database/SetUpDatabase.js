@@ -4,15 +4,20 @@ import StateDailyData from '../models/StateDailyData.js';
 import UsDailyData from '../models/UsDailyData.js';
 import stateCodes from './Data/states.js';
 
+/**
+ * Retrieves COVID-19 data for the US from an API and populates a database table with the data.
+ * This function is asynchronous.
+ */
 async function populateUsDailyData () {
   try {
     const response = await axios.get('https://api.covidtracking.com/v2/us/daily/simple.json');
     const covidData = response.data.data;
 
     for (const record of covidData) {
+      // Destructure data from the API response
       const { date, states, cases, testing, outcomes } = record;
 
-      // Check for null values before accessing properties
+      // Handle null values before accessing properties
       const totalCases = cases?.total ?? null;
       const totalTesting = testing?.total ?? null;
       const hospitalizedCurrently = outcomes?.hospitalized?.currently ?? null;
@@ -20,6 +25,7 @@ async function populateUsDailyData () {
       const onVentilatorCurrently = outcomes?.hospitalized?.on_ventilator?.currently ?? null;
       const totalDeaths = outcomes?.death?.total ?? null;
 
+      // Create a new record in the UsDailyData table
       await UsDailyData.create({
         date,
         states,
@@ -38,6 +44,10 @@ async function populateUsDailyData () {
   }
 }
 
+/**
+ * Populates a database table with COVID-19 data for each state using an API.
+ * This function is asynchronous.
+ */
 async function populateStateDailyData () {
   try {
     for (const stateCode in stateCodes) {
@@ -46,6 +56,7 @@ async function populateStateDailyData () {
       const stateData = response.data.data;
 
       for (const record of stateData) {
+        // Destructure data from the API response
         const {
           date,
           cases: { total: totalCases },
@@ -60,6 +71,7 @@ async function populateStateDailyData () {
           }
         } = record;
 
+        // Create a new record in the StateDailyData table
         await StateDailyData.create({
           date,
           stateCode,
@@ -80,9 +92,14 @@ async function populateStateDailyData () {
   }
 }
 
+/**
+ * Sets up the database by synchronizing models with the database schema, populating data,
+ * and closing the connection.
+ * This function is asynchronous.
+ */
 async function setupDatabase () {
   try {
-    await sequelize.sync(); // This synchronizes your models with the database schema
+    await sequelize.sync(); // Synchronize models with the database schema
     await populateUsDailyData();
     await populateStateDailyData();
     sequelize.close(); // Close the connection after populating data

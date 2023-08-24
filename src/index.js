@@ -38,7 +38,7 @@ app.use(express.json());
 // Config CORS
 const corsOptions = {
   origin: '*', // Set the allowed origin(s)
-  methods: ['GET', 'POST'], // Specify the allowed HTTP methods
+  methods: ['GET'], // Specify the allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
   credentials: true // Enable sending cookies from the client
 };

@@ -15,7 +15,10 @@ const sequelize = new Sequelize(DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD,
 });
 
 /**
- * This function connects to the MySQL database.
+ * Connects to a MySQL database using Sequelize and throws an error if the connection fails.
+ * This function is asynchronous.
+ *
+ * @throws {CredentialsError} If the connection to the database fails.
  */
 export async function connectDatabase () {
   try {
@@ -27,7 +30,10 @@ export async function connectDatabase () {
 }
 
 /**
- * This function checks if the database is connected and attempts to connect if it is not.
+ * Checks if the database is connected and connects to it if it is not.
+ * This function is asynchronous.
+ *
+ * @throws {DatabaseError} If there is an error calling the function to connect to the database.
  */
 export async function checkDatabase () {
   try {

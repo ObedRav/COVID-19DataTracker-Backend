@@ -1,6 +1,10 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../Database/Database.js';
 
+/**
+ * The `StateDailyData` model represents a table in the database for storing daily COVID-19 data for each state.
+ * It defines the structure of the table including its columns, data types, and constraints.
+ */
 const StateDailyData = sequelize.define('state_daily_data', {
   date: {
     type: DataTypes.DATEONLY,
