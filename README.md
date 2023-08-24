@@ -44,6 +44,7 @@ The <b>COVID-19</b> Data Tracker Backend is designed to handle various aspects o
 
 - Stringent parameter validation safeguards data integrity and application operation. Rigorous testing against API testers ensures resilience and security. Combined with API key validation, this approach mitigates potential threats.
 
+## Installation
 ## Node Installation :space_invader:
 
 <p align="center">
