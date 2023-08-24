@@ -2,7 +2,7 @@
 
 ![COVID-19 Data](./Images/Covid_19_Image.jpg)
 
-This repository contains the backend code for the COVID-19 Data Tracker application. The backend is built using Express.js and a MySQL database to extract, store, and serve COVID-19 data from reliable sources. The goal of the backend is to provide a scalable and efficient solution for managing and analyzing COVID-19 data.
+This repository contains the backend code for the <b>COVID-19</b> Data Tracker application. The backend is built using Express.js and a MySQL database to extract, store, and serve COVID-19 data from reliable sources. The goal of the backend is to provide a scalable and efficient solution for managing and analyzing COVID-19 data.
 
 ## Table of Contents
 - 📋 [Introduction](#introduction)
@@ -20,31 +20,29 @@ This repository contains the backend code for the COVID-19 Data Tracker applicat
 
 ## Introduction
 
-The COVID-19 Data Tracker Backend is designed to handle various aspects of COVID-19 data, including retrieving data from external APIs, storing it in a database, and providing endpoints for querying and analyzing the data. It serves as the backbone of the COVID-19 Data Tracker application, facilitating data-driven insights into the pandemic.
+The <b>COVID-19</b> Data Tracker Backend is designed to handle various aspects of <b>COVID-19</b> data, including retrieving data from external APIs, storing it in a database, and providing endpoints for querying and analyzing the data. It serves as the backbone of the <b>COVID-19</b> Data Tracker application, facilitating data-driven insights into the pandemic.
 
 ## Features
 
 ### Data Extraction 🌐
 
-The backend fetches COVID-19 data from reliable external APIs to ensure the accuracy and currency of the data. By sourcing data from reputable sources, the backend provides a foundation for data-driven insights and analysis.
+- The backend fetches <b>COVID-19</b> data from reliable external APIs to ensure the accuracy and currency of the data. By sourcing data from reputable sources, the backend provides a foundation for data-driven insights and analysis.
 
 ### Data Storage 🗄️
 
-The backend employs a robust MySQL relational database for secure storage of daily COVID-19 data. Utilizing a relational database offers advantages in managing large datasets, enabling efficient data retrieval and query operations as the dataset grows.
+- The backend employs a robust <b>MySQL</b> relational database for secure storage of daily <b>COVID-19</b> data. Utilizing a relational database offers advantages in managing large datasets, enabling efficient data retrieval and query operations as the dataset grows.
 
 ### Filtering 🔍
 
-Various endpoints allow users to query and analyze COVID-19 data using specific parameters. Whether it's data for a particular date, state, or other criteria, the backend supports advanced data analysis, empowering users with insights into the pandemic's impact.
+- Various endpoints allow users to query and analyze <b>COVID-19</b> data using specific parameters. Whether it's data for a particular date, state, or other criteria, the backend supports advanced data analysis, empowering users with insights into the pandemic's impact.
 
 ### Custom Errors ❗
 
-Custom error classes enhance error handling with informative messages. These classes, like `NotFound` and `DatabaseError`, not only improve user experience but also integrate seamlessly with future enhancements, such as a logging system like Sentry.
+- Custom error classes enhance error handling with informative messages. These classes, like `NotFound` and `DatabaseError`, not only improve user experience but also integrate seamlessly with future enhancements, such as a logging system like Sentry.
 
 ### Parameter Validation and Security 🔐
 
-Stringent parameter validation safeguards data integrity and application operation. Rigorous testing against API testers ensures resilience and security. Combined with API key validation, this approach mitigates potential threats.
-
-
+- Stringent parameter validation safeguards data integrity and application operation. Rigorous testing against API testers ensures resilience and security. Combined with API key validation, this approach mitigates potential threats.
 
 ## Node Installation :space_invader:
 
