@@ -3,10 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import helmetCsp from 'helmet-csp';
-// import https from 'https';
-// import { fileURLToPath } from 'url';
-// import fs from 'fs';
-// import path from 'path';
+import https from 'https';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import path from 'path';
 import dotenv from 'dotenv';
 import csrf from 'csurf'; // Import the csurf middleware
 import cookieParser from 'cookie-parser';
@@ -26,8 +26,8 @@ dotenv.config();
 const PORT = process.env.PORT ?? 5000;
 
 // declaring current environment
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Creating app
 const app = express();
@@ -67,14 +67,14 @@ app.use((_req, res, next) => {
   next();
 });
 
-/* Adding secure protocol
+// Adding secure protocol
 const serverOptions = {
   key: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.key')),
   cert: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.cert'))
 };
 
+// creating the secure protocol server
 const server = https.createServer(serverOptions, app);
-*/
 
 app.use(cookieParser());
 
@@ -90,13 +90,12 @@ app.use('/api', validateApiKey, [stateDailyDataRoutes, usDailyDataRoutes]);
 // implementing the errors
 app.use(errorHandler);
 
-/* handle server startup errors
+// handle server startup errors
 server.on('error', (error) => {
   console.error('Server startup error:', error);
 });
-*/
 
 // https server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
