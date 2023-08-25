@@ -23,7 +23,7 @@ import errorHandler from './utils/errorHandler.js';
 dotenv.config();
 
 // Obtaining env variables
-const PORT = process.env.COVID_19_PORT ?? 5000;
+const PORT = process.env.PORT ?? 5000;
 
 // declaring current environment
 const __filename = fileURLToPath(import.meta.url);
