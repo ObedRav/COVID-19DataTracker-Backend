@@ -1,6 +1,5 @@
 import UsDailyData from '../models/UsDailyData.js';
 import { DatabaseError, NotFound } from '../utils/errors.js';
-import { checkDatabase } from '../Database/Database.js';
 
 /**
  * Retrieves all US data from the database and sends it as a JSON response.
@@ -9,8 +8,6 @@ import { checkDatabase } from '../Database/Database.js';
  * @param {Object} res - The response object used to send the response back to the client.
  */
 export const getAllUsDailyData = async (_req, res) => {
-  checkDatabase();
-
   try {
     const allData = await UsDailyData.findAll();
     res.json(allData);
@@ -27,8 +24,6 @@ export const getAllUsDailyData = async (_req, res) => {
  * @param {Object} res - The response object used to send the response back to the client.
  */
 export const getUsDailyDataByDate = async (req, res) => {
-  checkDatabase();
-
   const date = req.params.date;
   try {
     const data = await UsDailyData.findOne({

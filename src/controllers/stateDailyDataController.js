@@ -1,6 +1,5 @@
 import StateDailyData from '../models/StateDailyData.js';
 import { DatabaseError, NotFound } from '../utils/errors.js';
-import { checkDatabase } from '../Database/Database.js';
 
 /**
   * Retrieves all daily data for a specific state from the database
@@ -10,8 +9,6 @@ import { checkDatabase } from '../Database/Database.js';
   * @param {Object} res - The response object used to send the response back to the client.
   */
 export const getAllStateDailyData = async (req, res) => {
-  checkDatabase();
-
   const stateCode = req.params.stateCode;
 
   try {
@@ -33,8 +30,6 @@ export const getAllStateDailyData = async (req, res) => {
  * @param {Object} res - The response object used to send the response back to the client.
  */
 export const getStateDailyDataByDate = async (req, res) => {
-  checkDatabase();
-
   const stateCode = req.params.stateCode;
   const date = req.params.date;
 
