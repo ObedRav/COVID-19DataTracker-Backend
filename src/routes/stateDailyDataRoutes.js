@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllStateDailyData, getStateDailyDataByDate } from '../controllers/stateDailyDataController.js';
+import { getAllStateDailyData, getStateDailyDataByDate, getStates } from '../controllers/stateDailyDataController.js';
 import { validateDate, validateStateCode } from '../middleware/dataValidations.js';
 
 const router = express.Router();
@@ -21,5 +21,13 @@ router.get('/states/:stateCode/daily', validateStateCode, getAllStateDailyData);
  * This route retrieves data for a specific state and date from the database and returns it as a JSON response.
  */
 router.get('/states/:stateCode/:date', validateStateCode, validateDate, getStateDailyDataByDate);
+
+/**
+ * Route: GET /states
+ * Controller: getStates
+ *
+ * This route retrieves all the posible states as a JSON response.
+ */
+router.get('/states', getStates);
 
 export default router;
