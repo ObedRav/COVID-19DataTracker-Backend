@@ -197,10 +197,13 @@ The API will be accessible at `https://localhost:<port>/api`.
 
 The API exposes the following endpoints:
 
-- **GET /daily**: Retrieves all US data.
-- **GET /daily/:date**: Retrieves US data by a specified date.
+- **GET /us/daily**: Retrieves all US data.
+- **GET /us/daily/:date**: Retrieves US data by a specified date.
+- **GET /us/tops**: Retrieves the top 3 records of the total cases, total deaths, total testing from the entire US.
 - **GET /states/:stateCode/daily**: Retrieves all data for a specific state.
-- **POST /states/:stateCode/:date**: Retrieves data for a specific state and date.
+- **GET /states/:stateCode/:date**: Retrieves data for a specific state and date.
+- **GET /states**: Retrieves all the posible states.
+- **GET /states/tops**: Retrieves the top 3 records of the total cases, total deaths, total testing from the states.
 
 ## API Key Validation :newspaper:
 
