@@ -39,3 +39,17 @@ export const getUsDailyDataByDate = async (req, res) => {
     throw new DatabaseError('Database Error', error);
   }
 };
+
+export const getUsTopsData = async (_req, res) => {
+  try {
+    const usTops = await UsDailyData.findAll({
+      attributes: ['date', 'total_cases', 'total_deaths', 'total_testing'],
+      order: [['total_cases', 'DESC'], ['total_deaths', 'DESC'], ['total_testing', 'DESC']],
+      limit: 3
+    });
+
+    res.json(usTops);
+  } catch (error) {
+    throw new DatabaseError('Database Error', error);
+  }
+};

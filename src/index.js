@@ -25,9 +25,10 @@ dotenv.config();
 // Obtaining env variables
 const PORT = process.env.PORT ?? 5000;
 
-// declaring current environment
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+/* declaring current environment
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+*/
 
 // Creating app
 const app = express();
@@ -61,19 +62,19 @@ app.use(
   })
 );
 
-// Apply cache-control middleware
+/**  Apply cache-control middleware
 app.use((_req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   next();
 });
 
-/** Adding secure protocol
+// Adding secure protocol
 const serverOptions = {
   key: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.key')),
   cert: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.cert'))
 };
 
-//creating the secure protocol server
+// creating the secure protocol server
 const server = https.createServer(serverOptions, app);
 */
 
@@ -91,6 +92,10 @@ app.use('/api', validateApiKey, [stateDailyDataRoutes, usDailyDataRoutes]);
 // implementing the errors
 app.use(errorHandler);
 
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
+
 /** handle server startup errors
 server.on('error', (error) => {
   console.error('Server startup error:', error);
@@ -101,7 +106,3 @@ server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 */
-
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
