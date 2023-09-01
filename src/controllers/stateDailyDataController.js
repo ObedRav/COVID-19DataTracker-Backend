@@ -65,15 +65,11 @@ export const getStates = (_req, res) => {
 };
 
 /**
- * The function `getStatesTopsData` retrieves the top 3 states with the highest total cases, total
- * deaths, and total testing from a database table called `StateDailyData` and sends the data as a JSON
+ * Retrieves the top 3 states with the highest total cases, total
+ * deaths, and total testing from a database table and sends the data as a JSON
  * response.
- * @param _req - The `_req` parameter is the request object that contains information about the
- * incoming HTTP request. It includes details such as the request method, headers, query parameters,
- * and body.
- * @param res - The `res` parameter is the response object that is used to send the response back to
- * the client. It is typically an instance of the `Response` class provided by the web framework you
- * are using.
+ * @param {Object} req - The request object containing details about the HTTP request made by the client.
+ * @param {Object} res - The response object used to send the response back to the client.
  */
 export const getStatesTopsData = async (_req, res) => {
   try {

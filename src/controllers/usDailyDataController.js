@@ -40,6 +40,12 @@ export const getUsDailyDataByDate = async (req, res) => {
   }
 };
 
+/**
+ * Eetrieves the top 3 records from the database based on the
+ * total number of cases, deaths, and testing.
+ * @param {Object} req - The request object containing details about the HTTP request made by the client.
+ * @param {Object} res - The response object used to send the response back to the client.
+ */
 export const getUsTopsData = async (_req, res) => {
   try {
     const usTops = await UsDailyData.findAll({
